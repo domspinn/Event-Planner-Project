@@ -1,0 +1,15 @@
+{{#extends 'layouts/main'}}
+  {{#content 'body'}}
+    <h2>{{title}}</h2>
+    <p>{{description}}</p>
+    <p>Date: {{date}}</p>
+    <p>Location: {{location}}</p>
+    <form action="/events/{{id}}/rsvp" method="POST">
+      <button type="submit">RSVP</button>
+    </form>
+    <form action="/events/{{id}}/rsvp" method="POST">
+      <input type="hidden" name="_method" value="DELETE">
+      <button type="submit">Cancel RSVP</button>
+    </form>
+  {{/content}}
+{{/extends}}

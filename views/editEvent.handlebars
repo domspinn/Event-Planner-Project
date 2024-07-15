@@ -1,0 +1,25 @@
+{{#extends 'layouts/main'}}
+  {{#content 'body'}}
+    <h2>Edit Event</h2>
+    <form action="/events/{{id}}" method="POST">
+      <input type="hidden" name="_method" value="PUT">
+      <div>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" value="{{title}}" required>
+      </div>
+      <div>
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" required>{{description}}</textarea>
+      </div>
+      <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" value="{{date}}" required>
+      </div>
+      <div>
+        <label for="location">Location:</label>
+        <input type="text" id="location" name="location" value="{{location}}" required>
+      </div>
+      <button type="submit">Update Event</button>
+    </form>
+  {{/content}}
+{{/extends}}
