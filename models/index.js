@@ -1,9 +1,8 @@
-const Sequelize = require('sequelize');
 const sequelize = require('../config/connection');
 
-const User = require('/User');
-const Event = require('/Event');
-const RSVP = require('/RSVP');
+const User = require('./user');
+const Event = require('./event');
+const RSVP = require('./rsvp');
 
 User.hasMany(Event, {
   foreignKey: 'userId',
