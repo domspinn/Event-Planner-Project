@@ -21,6 +21,10 @@ app.use(
   })
 );
 
+app.get('/api', (req, res) => {
+  res.send('Server testre');
+});
+
 app.use('/users', userRoutes);
 app.use('/events', eventRoutes);
 app.use('/events', rsvpRoutes);
