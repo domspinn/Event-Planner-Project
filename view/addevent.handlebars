@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Calendar</title>
+    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <link rel="stylesheet" href="../public/css/addevent.css">
+</head>
+
+<body>
+    <div id="event-form">
+        <label for="event-title">Event Title:</label>
+        <input type="text" id="event-title">
+        <label for="event-date">Date:</label>
+        <input type="date" id="event-date">
+        <label for="event-description">Description:</label>
+        <textarea id="event-description"></textarea>
+        <button id="post-event">Post</button>
+    </div>
+
+    <div id="edit-event-form" style="display: none;">
+        <h3>Edit Event</h3>
+        <label for="edit-event-title">Event Title:</label>
+        <input type="text" id="edit-event-title">
+        <label for="edit-event-date">Date:</label>
+        <input type="date" id="edit-event-date">
+        <label for="edit-event-description">Description:</label>
+        <textarea id="edit-event-description"></textarea>
+        <button id="update-event">Update</button>
+        <button id="cancel-edit">Cancel</button>
+    </div>
+
+    <div id="calendar"></div>
+    <div id="events-list"></div>
+
+    <script id="calendar-template" type="text/x-handlebars-template">
+        <h2>{{month}} {{year}}</h2>
+        <table>
+            <thead>
+                <tr>
+                    {{#each days}}
+                    <th>{{this}}</th>
+                    {{/each}}
+                </tr>
+            </thead>
+            <tbody>
+                {{#each weeks}}
+                <tr>
+                    {{#each this}}
+                    <td>{{this}}</td>
+                    {{/each}}
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    </script>
+
+    <script id="events-template" type="text/x-handlebars-template">
+        <h3>Events</h3>
+        <ul>
+            {{#each events}}
+            <li>
+                <strong>{{summary}}</strong> ({{start.date}})
+                <button onclick="editEvent('{{id}}', '{{summary}}', '{{start.date}}', '{{description}}')">Edit</button>
+                <button onclick="deleteEvent('{{id}}')">Delete</button>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+
+    <script src="../javascript/addevent.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,19 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+#event-form,
+#edit-event-form {
+    margin: 20px;
+}
+
+#calendar,
+#events-list {
+    margin: 20px;
+}
+
+input,
+textarea {
+    display: block;
+    margin-bottom: 10px;
+}
