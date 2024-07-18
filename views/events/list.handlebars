@@ -1,0 +1,9 @@
+    <h2>Event List</h2>
+    <ul>
+      {{#each events}}
+        <li>{{this.title}} on {{this.date}} at {{this.location}}
+          <button class="delete-event-btn" data-id="{{this.id}}">Delete</button>
+        </li>
+      {{/each}}
+    </ul>
+    <a href="/events/create">Create New Event</a>
