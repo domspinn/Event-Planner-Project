@@ -6,8 +6,8 @@ function handleClientLoad() {
 // initializing the Google API client
 function initClient() {
     gapi.client.init({
-        apiKey: 'YOUR_API_KEY',
-        clientId: 'YOUR_CLIENT_ID',
+        apiKey: '',
+        clientId: '',
         discoveryDocs: ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"],
         scope: "https://www.googleapis.com/auth/calendar.events"
     }).then(() => {
@@ -26,11 +26,11 @@ function addEvent() {
         'description': document.getElementById('event-description').value,
         'start': {
             'date': document.getElementById('event-date').value,
-            'timeZone': 'America/Los_Angeles'
+            'timeZone': 'America/New_York'
         },
         'end': {
             'date': document.getElementById('event-date').value,
-            'timeZone': 'America/Los_Angeles'
+            'timeZone': 'America/New_York'
         }
     };
 

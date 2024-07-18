@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Calendar</title>
-    <script src="https://cdn.jsdelivr.net/npm/handlebars@latest/dist/handlebars.min.js"></script>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <link rel="stylesheet" href="../public/css/addevent.css">
-</head>
-
-<body>
+<link rel="stylesheet" href="../public/css/addevent.css">
     <div id="event-form">
         <label for="event-title">Event Title:</label>
         <input type="text" id="event-title">
@@ -18,25 +6,25 @@
         <input type="date" id="event-date">
         <label for="event-description">Description:</label>
         <textarea id="event-description"></textarea>
-        <button id="post-event">Post</button>
+        <button id="post">Post</button>
     </div>
 
-    <div id="edit-event-form" style="display: none;">
+    <div id="edit-event">
         <h3>Edit Event</h3>
-        <label for="edit-event-title">Event Title:</label>
-        <input type="text" id="edit-event-title">
-        <label for="edit-event-date">Date:</label>
-        <input type="date" id="edit-event-date">
-        <label for="edit-event-description">Description:</label>
-        <textarea id="edit-event-description"></textarea>
+        <label for="edit-title">Event Title:</label>
+        <input type="text" id="edit-title">
+        <label for="edit-date">Date:</label>
+        <input type="date" id="edit-date">
+        <label for="edit-description">Description:</label>
+        <textarea id="edit-description"></textarea>
         <button id="update-event">Update</button>
-        <button id="cancel-edit">Cancel</button>
+        <button id="cancel">Cancel</button>
     </div>
 
     <div id="calendar"></div>
     <div id="events-list"></div>
 
-    <script id="calendar-template" type="text/x-handlebars-template">
+    <script id="calendar" type="text">
         <h2>{{month}} {{year}}</h2>
         <table>
             <thead>
@@ -58,7 +46,7 @@
         </table>
     </script>
 
-    <script id="events-template" type="text/x-handlebars-template">
+    <script id="events" type="text">
         <h3>Events</h3>
         <ul>
             {{#each events}}
@@ -72,6 +60,3 @@
     </script>
 
     <script src="../javascript/addevent.js"></script>
-</body>
-
-</html>
