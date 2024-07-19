@@ -1,0 +1,32 @@
+<h1>Edit Event</h1>
+<form action="/events/{{id}}" method="POST">
+  <input type="hidden" name="_method" value="PUT">
+  <div class="field">
+    <label class="label">Title</label>
+    <div class="control">
+      <input class="input" type="text" name="title" value="{{title}}" required>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Description</label>
+    <div class="control">
+      <textarea class="textarea" name="description">{{description}}</textarea>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Date</label>
+    <div class="control">
+      <input class="input" type="datetime-local" name="date" value="{{date}}" required>
+    </div>
+  </div>
+  <div class="field">
+    <label class="label">Location</label>
+    <div class="control">
+      <input class="input" type="text" name="location" value="{{location}}" required>
+    </div>
+  </div>
+  <div class="control">
+    <button class="button is-primary" type="submit">Update Event</button>
+  </div>
+</form>
+<a href="/events">Back to Events</a>
