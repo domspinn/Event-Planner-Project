@@ -1,32 +1,18 @@
 DROP DATABASE IF EXISTS event_planner_db;
+
 CREATE DATABASE event_planner_db;
 
--- Drop tables if they exist
-DROP TABLE IF EXISTS rsvps;
-DROP TABLE IF EXISTS events;
-DROP TABLE IF EXISTS users;
-
--- Create users table
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
-    username VARCHAR(255) NOT NULL,
-    email VARCHAR(255) NOT NULL UNIQUE,
+    username VARCHAR(50) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL
 );
 
--- Create events table
 CREATE TABLE events (
     id SERIAL PRIMARY KEY,
-    title VARCHAR(255) NOT NULL,
+    title VARCHAR(100) NOT NULL,
+    date DATE NOT NULL,
+    location VARCHAR(100) NOT NULL,
     description TEXT,
-    date TIMESTAMP NOT NULL,
-    location VARCHAR(255) NOT NULL,
-    userId INTEGER REFERENCES users(id) ON DELETE CASCADE
-);
-
--- Create rsvps table
-CREATE TABLE rsvps (
-    id SERIAL PRIMARY KEY,
-    userId INTEGER REFERENCES users(id) ON DELETE CASCADE,
-    eventId INTEGER REFERENCES events(id) ON DELETE CASCADE
+    user_id INTEGER REFERENCES users(id) ON DELETE CASCADE
 );

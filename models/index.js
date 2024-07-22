@@ -1,28 +1,12 @@
-const sequelize = require('../config/connection');
-
 const User = require('./user');
 const Event = require('./event');
-const RSVP = require('./rsvp');
 
 User.hasMany(Event, {
-  foreignKey: 'userId',
-  onDelete: 'CASCADE'
+  foreignKey: 'user_id',
 });
 
 Event.belongsTo(User, {
-  foreignKey: 'userId'
+  foreignKey: 'user_id',
 });
 
-User.belongsToMany(Event, {
-  through: RSVP,
-  as: 'rsvpedEvents',
-  foreignKey: 'userId'
-});
-
-Event.belongsToMany(User, {
-  through: RSVP,
-  as: 'attendees',
-  foreignKey: 'eventId'
-});
-
-module.exports = { User, Event, RSVP, sequelize };
+module.exports = { User, Event };

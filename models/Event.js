@@ -1,47 +1,25 @@
-const { Model, DataTypes } = require('sequelize');
+const { DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const User = require('./user');
 
-class event extends Model {}
-
-event.init(
-    {
-      id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
-      },
-      title: {
+const Event = sequelize.define('Event', {
+    title: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      description: {
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },
-      date: {
+    },
+    date: {
         type: DataTypes.DATE,
         allowNull: false,
-      },
-      location: {
+    },
+    location: {
         type: DataTypes.STRING,
         allowNull: false,
-      },
-      userId: {
-        type: DataTypes.INTEGER,
-        references: {
-            model: 'user',
-            key: 'id',
-        },
-      },
-    },    
-    {
-      sequelize,
-      timestamps: false,
-      freezeTableName: true,
-      underscored: true,
-      modelName: 'event',
-    }
-  );
+    },
+    description: {
+        type: DataTypes.TEXT,
+    },
+});
 
-  module.exports = event;
+Event.belongsTo(User, { foreignKey: 'userId', onDelete: 'CASCADE' });
+
+module.exports = Event;

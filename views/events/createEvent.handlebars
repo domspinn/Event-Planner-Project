@@ -1,0 +1,74 @@
+ <style>
+        body {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 600px;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background-color: #34495e;
+            border-radius: 10px;
+        }
+        .title, label {
+            color: #ecf0f1;
+        }
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        label {
+            font-size: 1.25em;
+        }
+        .box {
+            background-color: #23303d;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        .input, .textarea, .button {
+            margin-top: 10px;
+        }
+    </style>
+
+    <div class="container">
+        <h2 class="title has-text-white">Create Event</h2>
+        <div class="box">
+            <form action="/events/new" method="POST">
+                <div class="field">
+                    <label class="label" for="title">Title</label>
+                    <div class="control">
+                        <input class="input" type="text" id="title" name="title" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="date">Date</label>
+                    <div class="control">
+                        <input class="input" type="date" id="date" name="date" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="location">Location</label>
+                    <div class="control">
+                        <input class="input" type="text" id="location" name="location" required>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label" for="description">Description</label>
+                    <div class="control">
+                        <textarea class="textarea" id="description" name="description"></textarea>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button type="submit" class="button is-primary is-fullwidth">Create Event</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>

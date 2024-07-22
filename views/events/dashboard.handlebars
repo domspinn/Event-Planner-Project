@@ -1,0 +1,85 @@
+ <style>
+        body {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            max-width: 800px;
+            width: 100%;
+            padding: 20px;
+            text-align: center;
+            background-color: #34495e;
+            border-radius: 10px;
+        }
+        .title, .subtitle, h2, h3, h4, p {
+            color: #ecf0f1;
+        }
+        .title, .subtitle, h2, h3, h4 {
+            margin-bottom: 20px;
+        }
+        .title {
+            font-size: 2.5em;
+        }
+        .subtitle, h2 {
+            font-size: 2em;
+        }
+        h3 {
+            font-size: 1.5em;
+        }
+        h4 {
+            font-size: 1.25em;
+        }
+        p {
+            font-size: 1.25em;
+            margin-bottom: 15px;
+        }
+        a {
+            color: #3498db;
+        }
+        a:hover {
+            color: #2980b9;
+        }
+        .event {
+            background-color: #23303d;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+        }
+        .buttons {
+            margin-bottom: 20px;
+        }
+        button {
+            margin-right: 10px;
+        }
+    </style>
+
+    <div class="container">
+        <h2 class="title has-text-white">Dashboard</h2>
+        <div class="buttons is-centered">
+            <a href="/events/new" class="button is-primary">Create New Event</a>
+        </div>
+        <h3 class="subtitle">Your Events</h3>
+        {{#if events.length}}
+            {{#each events}}
+            <div class="event box">
+                <h4 class="title is-4">{{this.title}}</h4>
+                <p>Date: {{this.date}}</p>
+                <p>Location: {{this.location}}</p>
+                <p>Description: {{this.description}}</p>
+                <form action="/events/{{this.id}}/delete" method="POST" style="display: inline;">
+                    <button type="submit" class="button is-danger is-light">Delete</button>
+                </form>
+            </div>
+            {{/each}}
+        {{else}}
+            <p>No events found.</p>
+        {{/if}}
+        <div class="buttons is-centered">
+            <a href="https://calendar.google.com/calendar/u/0/r" class="button is-ghost">Go To Calendar</a>
+        </div>
+    </div>
