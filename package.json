@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "start:prod": "node dist/src/main"
+    "start:prod": "node dist/src/main",
+    "main": "server.js"
   },
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.5",
