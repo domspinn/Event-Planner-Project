@@ -39,7 +39,7 @@ app.use(session({
 const authRoutes = require('./routes/authRoutes');
 const eventRoutes = require('./routes/eventRoutes');
 const homeRoutes = require('./routes/homeRoutes');
-const event = require('./models/event')
+const event = require('./models/Event')
 
 app.use(authRoutes);
 app.use(eventRoutes);
